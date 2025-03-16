@@ -24,6 +24,38 @@ void Setup() {
     score = 0;
 }
 
+void Draw() {
+    system("cls");
+    printf("!!!!slither.io!!!!\n");
+    for (int i = 0; i < WIDTH + 2; i++) printf("#");
+    printf("\n");
+
+    for (int i = 0; i < HEIGHT; i++) {
+        for (int j = 0; j < WIDTH; j++) {
+            if (j == 0) printf("#");
+            if (i == y && j == x)
+                printf("Q");
+            else if (i == fruitY && j == fruitX)
+                printf("$");
+            else {
+                int print = 0;
+                for (int k = 0; k < nTail; k++) {
+                    if (tailX[k] == j && tailY[k] == i) {
+                        printf("o");
+                        print = 1;
+                    }
+                }
+                if (!print) printf(" ");
+            }
+            if (j == WIDTH - 1) printf("#");
+        }
+        printf("\n");
+    }
+
+    for (int i = 0; i < WIDTH + 2; i++) printf("#");
+    printf("\nScore: %d\n", score);
+}
+
 int main()
 {
 

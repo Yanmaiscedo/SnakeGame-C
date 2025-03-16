@@ -106,6 +106,13 @@ void Logic() {
 
 int main()
 {
-
+    srand(time(NULL));
+    Setup();
+    while (!gameOver) {
+        Draw();
+        Input();
+        Logic();
+        usleep(40);
+    }
     return 0;
 }
